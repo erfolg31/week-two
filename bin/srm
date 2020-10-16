@@ -1,0 +1,22 @@
+#! /bin/bash
+
+#check if recycle bin exists
+if [ ! -e ~/RECYCLE ]
+then
+	mkdir ~/RECYCLE
+
+fi
+
+#moving file to RECYCLE and zipping
+
+mv $1 ~/RECYCLE/
+
+cd ~/RECYCLE
+
+gzip $1
+
+
+#find and delete files <= 7days
+
+find -mtime +7 -delete
+

@@ -1,4 +1,4 @@
-# week-two
+# bash-safe-remove
 
 This utility allows safely deletion of the files.
 

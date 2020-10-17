@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#creating the recycle bin, if does not exists
+if [ ! -e ~/RECYCLE ]
+then
+	echo "Creating Recycle bin ..."
+	mkdir ~/RECYCLE
+fi
+
+#moving file --> Recycle bin
+mv $1 ~/RECYCLE
+
+#zipping  moved file
+gzip ~/RECYCLE/$1
+
+#delete files created today or before today
+find -mtime -1 -delete
+
+
+
+#if same name file exists in the folder
